@@ -66,6 +66,12 @@ try {
   }
 })
 
+App.use('/',(req,res)=>{
+  return res.json({
+    message: "server is live"
+  })
+})
+
 App.listen(3001,()=>{
     console.log('server is started')
 })
