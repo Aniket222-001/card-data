@@ -14,15 +14,22 @@ App.use(cors())
 //   next();
 // });
 
-const mongodb = async()=>{
-await mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
-.then(()=>{
-    console.log('connected to database')
-})
-.catch(()=>{
-    console.log('failed to connect to database')
-})
-}
+const mongodb = async () => {
+  try {
+    await mongoose
+      .connect(
+        "mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login"
+      )
+      .then(() => {
+        console.log("connected to database");
+      })
+      .catch(() => {
+        console.log("failed to connect to database");
+      });
+  } catch (e) {
+    console.log(e);
+  }
+};
 mongodb()
 
 // mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
