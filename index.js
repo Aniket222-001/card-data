@@ -5,15 +5,15 @@ const cors = require('cors')
 const App = express();
 App.use(express.json())
 // App.use(cors())
-app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
+// app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
-// const corsOptions = {
-//   origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true, // enable credentials (cookies, etc.)
-//   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
-// App.use(cors(corsOptions));
+const corsOptions = {
+  origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // enable credentials (cookies, etc.)
+  optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+App.use(cors(corsOptions));
 
 // Enable CORS for all routes
 // app.use((req, res, next) => {
