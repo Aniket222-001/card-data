@@ -91,7 +91,7 @@ try {
   }
 })
 
-App.use('/',(req,res)=>{
+App.get('/',(req,res)=>{
   return res.json({
     message: "server is live"
   })
