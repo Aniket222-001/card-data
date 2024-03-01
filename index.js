@@ -14,15 +14,24 @@ App.use(cors())
 //   next();
 // });
 
-
-
-mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
+const mongodb = async()=>{
+await mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
 .then(()=>{
     console.log('connected to database')
 })
 .catch(()=>{
     console.log('failed to connect to database')
 })
+}
+mongodb()
+
+// mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
+// .then(()=>{
+//     console.log('connected to database')
+// })
+// .catch(()=>{
+//     console.log('failed to connect to database')
+// })
 
 const userSchema = new mongoose.Schema({
      title: String,
