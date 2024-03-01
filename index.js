@@ -4,17 +4,17 @@ const cors = require('cors')
 
 const App = express();
 App.use(express.json())
-App.use(cors())
+// App.use(cors())
+app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
-
-const corsOptions = {
-  origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // enable credentials (cookies, etc.)
-  optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
+// const corsOptions = {
+//   origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // enable credentials (cookies, etc.)
+//   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 // App.use(cors(corsOptions));
+
 // Enable CORS for all routes
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -24,19 +24,19 @@ const corsOptions = {
 //   next();
 // });
 
-App.options('*', cors(corsOptions));
+
 
 // Handle preflight requests
-App.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://card-frontend-dun.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
+// App.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://card-frontend-dun.vercel.app');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   if (req.method === 'OPTIONS') {
+//     res.sendStatus(200);
+//   } else {
+//     next();
+//   }
+// });
 
 // Your existing routes
 
