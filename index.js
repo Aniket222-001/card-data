@@ -15,6 +15,7 @@ App.use(cors())
 // });
 
 
+
 mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
 .then(()=>{
     console.log('connected to database')
@@ -79,6 +80,15 @@ App.use('/',(req,res)=>{
     message: "server is live"
   })
 })
+
+const corsOptions = {
+  origin: 'http://localhost:3000', // the origin that is allowed
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // enable credentials (cookies, etc.)
+  optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+App.use(cors(corsOptions));
 
 App.listen(3001,()=>{
     console.log('server is started')
