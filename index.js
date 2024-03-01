@@ -14,7 +14,7 @@ const corsOptions = {
   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
-App.use(cors(corsOptions));
+// App.use(cors(corsOptions));
 // Enable CORS for all routes
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -23,6 +23,23 @@ App.use(cors(corsOptions));
 //   res.setHeader('Access-Control-Allow-Credentials', 'true');
 //   next();
 // });
+
+App.options('*', cors(corsOptions));
+
+// Handle preflight requests
+App.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://card-frontend-dun.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
+// Your existing routes
+
 
 const mongodb = async () => {
   try {
