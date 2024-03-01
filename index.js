@@ -14,13 +14,10 @@ App.use(cors())
 //   next();
 // });
 
-const mongodb = async(req,res)=>{
+const mongodb = async()=>{
 await mongoose.connect('mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/?retryWrites=true&w=majority&appName=login/Login')
 .then(()=>{
     console.log('connected to database')
-    return res.json({
-      message: "succefully connect to db"
-    })
 })
 .catch(()=>{
     console.log('failed to connect to database')
