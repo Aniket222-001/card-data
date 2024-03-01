@@ -98,7 +98,7 @@ App.use('/',(req,res)=>{
 })
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // the origin that is allowed
+  origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // enable credentials (cookies, etc.)
   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
