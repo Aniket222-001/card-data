@@ -5,6 +5,7 @@ const cors = require('cors')
 const App = express();
 App.use(express.json())
 App.use(cors())
+axios.defaults.withCredentials = true;
 
 const corsOptions = {
   origin: 'https://card-frontend-dun.vercel.app', // the origin that is allowed
