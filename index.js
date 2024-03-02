@@ -65,7 +65,7 @@ App.post("/login", async (req, res) => {
 
 App.get("/", (req, res) => {
   return res.json({
-    message: "server is live",
+    message: "server is live fuck but not wroking",
   });
 });
 
