@@ -68,7 +68,7 @@ mongodb()
 // .catch(()=>{
 //     console.log('failed to connect to database')
 // })
-
+try{
 const userSchema = new mongoose.Schema({
      title: String,
      img: String,
@@ -77,6 +77,10 @@ const userSchema = new mongoose.Schema({
 })
 
 const usermodel = mongoose.model('user',userSchema,'card')
+}catch(e){
+  console.log(e);
+  console.log('unable to create schema')
+}
 
 App.post('/login',async(req,res)=>{
     try{
@@ -88,12 +92,17 @@ App.post('/login',async(req,res)=>{
          })
     }
     else{
+    try{
     const createuser = await usermodel.create({
         title,
         img,
         desc,
         downloadurl
-    })
+    })}
+    catch(e){
+      console.log('unable to save data')
+      console.log(e)
+    }
     return res.status(200).json({
         success: true,
         data: createuser,
