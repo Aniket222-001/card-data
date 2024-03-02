@@ -8,7 +8,7 @@ const App = express();
 // app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
 const corsOptions = {
-  origin: "https://card-frontend-dun.vercel.app", // the origin that is allowed
+  origin: "https://cors-anywhere.herokuapp.com/https://card-frontend-dun.vercel.app", // the origin that is allowed
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // enable credentials (cookies, etc.)
   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
