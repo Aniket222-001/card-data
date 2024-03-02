@@ -7,29 +7,13 @@ App.use(express.json());
 // App.use(cors())
 app.use(cors({
   origin: 'https://card-frontend-dun.vercel.app',
-  methods: 'GET,POST',
-  allowedHeaders: 'Content-Type,Authorization',
+  methods: ['GET,POST'],
   credentials: true // Enable credentials
 }));
 
 
-const mongodb = async () => {
-  try {
-    await mongoose
-      .connect(
-        "mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/Login?retryWrites=true&w=majority&appName=login"
-        )
-      .then(() => {
-        console.log("connected to  database");
-      })
-      .catch(() => {
-        console.log("failed to connect to database");
-      });
-  } catch (e) {
-    console.log(e);
-  }
-};
-mongodb();
+mongoose.connect("mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/Login?retryWrites=true&w=majority&appName=login")
+    
 
 const userSchema = new mongoose.Schema({
   title: String,
@@ -69,15 +53,15 @@ App.post("/login", async (req, res) => {
   }
 });
 
-App.get("/api/data", async (req, res) => {
-  try {
-    const users = await usermodel.find();
-     res.json(users);
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    res.status(500).json({ error: "Failed to fetch users" });
-  }
-});
+// App.get("/api/data", async (req, res) => {
+//   try {
+//     const users = await usermodel.find();
+//      res.json(users);
+//   } catch (error) {
+//     console.error("Error fetching users:", error);
+//     res.status(500).json({ error: "Failed to fetch users" });
+//   }
+// });
 
 App.get("/", (req, res) => {
   return res.json({
