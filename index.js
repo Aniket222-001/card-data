@@ -4,7 +4,7 @@ const cors = require('cors')
 
 const App = express();
 
-// App.use(cors())
+App.use(cors())
 // app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
 const corsOptions = {
