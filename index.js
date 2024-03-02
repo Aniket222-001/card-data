@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const App = express();
-App.use(express.json())
+
 // App.use(cors())
 // app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
@@ -14,7 +14,7 @@ const corsOptions = {
   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 App.use(cors(corsOptions));
-
+App.use(express.json())
 // Enable CORS for all routes
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
