@@ -4,7 +4,13 @@ const cors = require("cors");
 
 const App = express();
 App.use(express.json());
-App.use(cors())
+// App.use(cors())
+app.use(cors({
+  origin: 'https://example.com',
+  methods: 'GET,POST',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true // Enable credentials
+}));
 
 
 const mongodb = async () => {
