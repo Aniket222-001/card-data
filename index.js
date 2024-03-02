@@ -6,7 +6,7 @@ const App = express();
 App.use(express.json());
 // App.use(cors())
 App.use(cors({
-  origin: ['https://card-frontend-dun.vercel.app'],
+  origin: ['https://card-frontend-mqhv.vercel.app'],
   methods: ['GET','POST'],
   credentials: true // Enable credentials
 }));
