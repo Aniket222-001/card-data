@@ -6,6 +6,19 @@ const App = express();
 App.use(express.json());
 App.use(cors())
 
+// api/data.js
+export default async function handler(req, res) {
+  const response = await fetch('https://card-data-seven.vercel.app/api/data');
+  const data = await response.json();
+
+  res.setHeader('Access-Control-Allow-Origin', 'https://card-frontend-dun.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+  res.status(response.status).json(data);
+}
+
 
 
 const mongodb = async () => {
