@@ -12,7 +12,7 @@ App.use(cors({
 }));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://card-frontend-mqhv.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
 
