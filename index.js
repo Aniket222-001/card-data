@@ -7,15 +7,15 @@ const App = express();
 App.use(cors())
 // app.use(cors({ origin: 'https://card-frontend-dun.vercel.app', credentials: true }));
 
-const corsOptions = {
-  origin: "https://card-frontend-dun.vercel.app", // the origin that is allowed
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // enable credentials (cookies, etc.)
-  optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  allowedHeaders: ["Content-Type","Authorization"],
-  exposedHeaders: ["Set-Cookie"]
-};
-App.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "https://card-frontend-dun.vercel.app", // the origin that is allowed
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true, // enable credentials (cookies, etc.)
+//   optionsSuccessStatus: 204, // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   allowedHeaders: ["Content-Type","Authorization"],
+//   exposedHeaders: ["Set-Cookie"]
+// };
+// App.use(cors(corsOptions));
 App.use(express.json())
 // Enable CORS for all routes
 // app.use((req, res, next) => {
