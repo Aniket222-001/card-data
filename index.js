@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb+srv://aniketkushwaha0408:Aniket12345@login.gvlzkmg.mongodb.net/Login?retryWrites=true&w=majority&appName=login")
+mongoose.connect("mongodb+srv://bloguser:bloguser@cluster0.pzyg7m3.mongodb.net/Blogdata")
     
 
 const userSchema = new mongoose.Schema({
