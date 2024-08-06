@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb+srv://bloguser:bloguser@cluster0.pzyg7m3.mongodb.net/Blogdata")
+mongoose.connect("")
     
 
 const userSchema = new mongoose.Schema({
